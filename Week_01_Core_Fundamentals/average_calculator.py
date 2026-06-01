@@ -15,6 +15,9 @@ TODO:
 """
 
 def calculate_average(values):
+    if len(values) == 0:
+        raise ValueError
+
     sum = 0
     for i in values:
         try:

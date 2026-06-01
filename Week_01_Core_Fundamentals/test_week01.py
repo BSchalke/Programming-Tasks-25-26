@@ -66,35 +66,28 @@ class TestAverageCalculator:
 
     def test_average_single_value(self):
         # TODO: a list with one value should return that value as a float
-        assert calculate_average(  # TODO
-        ) == # TODO
+        assert calculate_average([1]) == 1 and isinstance(calculate_average([1]), float)
 
     def test_average_returns_float_type(self):
         # TODO: call calculate_average() and check the result is of type float
-        result = calculate_average(  # TODO
-        )
-        assert isinstance(result, # TODO
-        )
+        result = calculate_average([4, 6, 7.5])
+        assert isinstance(result, float)
 
     # ── EXPECTED ──────────────────────────────────────────────────────────
 
     def test_average_with_negative_numbers(self):
         # TODO: include at least one negative number in the list
-        assert calculate_average(  # TODO
-        ) == # TODO
+        assert calculate_average([-1, -5, 9]) == 1
 
     def test_average_decimal_result(self):
         # TODO: choose values whose mean is not a whole number, e.g. [1, 2]
-        assert calculate_average(  # TODO
-        ) == pytest.approx(  # TODO  ← use pytest.approx() for decimals
-        )
+        assert calculate_average([1,2]) == pytest.approx(1.5)
 
     # ── STRETCH ───────────────────────────────────────────────────────────
 
     def test_average_empty_list_raises_error(self):
         # TODO: an empty list has no mean — what error should be raised?
-        with pytest.raises(  # TODO: ValueError or another appropriate exception
-        ):
+        with pytest.raises(ValueError):
             calculate_average([])
 
 
