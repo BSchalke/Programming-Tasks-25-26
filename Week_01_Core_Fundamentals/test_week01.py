@@ -62,8 +62,7 @@ class TestAverageCalculator:
     def test_average_of_two_numbers(self):
         # TODO: call calculate_average() with two numbers that give a whole number average
         # e.g. calculate_average([???, ???]) == ???
-        assert calculate_average(  # TODO
-        ) == # TODO
+        assert calculate_average([5, 7]) == 6.0
 
     def test_average_single_value(self):
         # TODO: a list with one value should return that value as a float
