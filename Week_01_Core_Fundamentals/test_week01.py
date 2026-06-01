@@ -110,48 +110,40 @@ class TestMinMaxFinder:
 
     def test_find_min_basic(self):
         # TODO: call find_min() with a list and check it returns the smallest value
-        assert find_min(  # TODO
-        ) == # TODO
+        assert find_min([1,2,3,4,5,6]) == 1
 
     def test_find_max_single_element(self):
         # TODO: a list with one element — max should equal that element
-        assert find_max(  # TODO
-        ) == # TODO
+        assert find_max([1,2,3,4,5,6]) == 6
 
     def test_find_min_single_element(self):
         # TODO: a list with one element — min should equal that element
-        assert find_min(  # TODO
-        ) == # TODO
+        assert find_min([5]) == 5
 
     # ── EXPECTED ──────────────────────────────────────────────────────────
 
     def test_find_min_with_negative_numbers(self):
         # TODO: include negative numbers — which should be the minimum?
-        assert find_min(  # TODO
-        ) == # TODO
+        assert find_min(5,6,9,-5,-2) == -5
 
     def test_find_max_with_negative_numbers(self):
         # TODO: a list of only negative numbers — which is the maximum?
-        assert find_max(  # TODO
-        ) == # TODO
+        assert find_max([-1,-2,-3]) == -1
 
     def test_find_min_all_same_values(self):
         # TODO: what should find_min return if every element is identical?
-        assert find_min(  # TODO
-        ) == # TODO
+        assert find_min([1,1,1,1]) == 1
 
     # ── STRETCH ───────────────────────────────────────────────────────────
 
     def test_find_min_empty_list_raises_error(self):
         # TODO: what happens if the list is empty? what error should be raised?
-        with pytest.raises(  # TODO
-        ):
+        with pytest.raises(ValueError):
             find_min([])
 
     def test_find_max_empty_list_raises_error(self):
         # TODO: same question for find_max
-        with pytest.raises(  # TODO
-        ):
+        with pytest.raises(ValueError):
             find_max([])
 
 
