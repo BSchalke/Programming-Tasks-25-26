@@ -124,7 +124,7 @@ class TestMinMaxFinder:
 
     def test_find_min_with_negative_numbers(self):
         # TODO: include negative numbers — which should be the minimum?
-        assert find_min(5,6,9,-5,-2) == -5
+        assert find_min([5,6,9,-5,-2]) == -5
 
     def test_find_max_with_negative_numbers(self):
         # TODO: a list of only negative numbers — which is the maximum?
@@ -166,19 +166,16 @@ class TestArrayReversal:
 
     def test_reverse_two_elements(self):
         # TODO: reverse a list of exactly two elements
-        assert reverse_array(  # TODO
-        ) == # TODO
+        assert reverse_array([1,2]) == [2,1]
 
     def test_reverse_returns_list_type(self):
         # TODO: check the return type is a list
-        result = reverse_array(  # TODO
-        )
-        assert isinstance(result, # TODO
-        )
+        result = reverse_array([1,2,3,4,5])
+        assert isinstance(result, list)
 
     def test_reverse_preserves_all_elements(self):
         # TODO: reversed list should contain exactly the same elements, just reordered
-        original = # TODO
+        original = [5,8,1,2,9,0,1,12,23]
         result = reverse_array(original)
         assert sorted(result) == sorted(original)
 
@@ -186,25 +183,23 @@ class TestArrayReversal:
 
     def test_reverse_single_element(self):
         # TODO: reversing a one-element list should return the same list
-        assert reverse_array(  # TODO
-        ) == # TODO
+        assert reverse_array([1]) == [1]
 
     def test_reverse_string_list(self):
         # TODO: lists of strings should reverse just like lists of numbers
-        assert reverse_array(  # TODO: e.g. ["a", "b", "c"]
-        ) == # TODO
+        assert reverse_array(["a","b","c","d"]) == ["d","c","b","a"]
 
     def test_reverse_does_not_modify_original(self):
         # TODO: reverse_array should return a NEW list, not change the original
         original = [1, 2, 3]
         reverse_array(original)
-        assert original == # TODO: what should original still equal after the call?
+        assert original == [1,2,3]
 
     # ── STRETCH ───────────────────────────────────────────────────────────
 
     def test_reverse_empty_list_returns_empty(self):
         # TODO: reversing an empty list should return an empty list, not raise an error
-        assert reverse_array([]) == # TODO
+        assert reverse_array([]) == []
 
 
 # ╔═════════════════════════════════════════════════════════════════════════╗
@@ -226,47 +221,39 @@ class TestLinearSearch:
 
     def test_search_target_not_found_returns_minus_one(self):
         # TODO: search for a value that is NOT in the list — should return -1
-        assert linear_search(  # TODO
-        ) == -1
+        assert linear_search([1,2,3,4,5], 6) == -1
 
     def test_search_target_at_first_index(self):
         # TODO: what index should be returned when the target is the first element?
-        assert linear_search(  # TODO
-        ) == # TODO
+        assert linear_search([1,2,3,4], 1) == 0
 
     def test_search_target_at_last_index(self):
         # TODO: what index should be returned when the target is the last element?
-        assert linear_search(  # TODO
-        ) == # TODO
+        assert linear_search([1,2,3,4,5], 5) == 4
 
     # ── EXPECTED ──────────────────────────────────────────────────────────
 
     def test_search_single_element_found(self):
         # TODO: list with one element, searching for that element
-        assert linear_search(  # TODO
-        ) == 0
+        assert linear_search([1], 1) == 0
 
     def test_search_single_element_not_found(self):
         # TODO: list with one element, searching for a different value
-        assert linear_search(  # TODO
-        ) == -1
+        assert linear_search([1], 2) == -1
 
     def test_search_returns_first_occurrence(self):
         # TODO: if the target appears more than once, the FIRST index should be returned
-        assert linear_search(  # TODO: e.g. [5, 3, 5, 7], target=5
-        ) == # TODO
+        assert linear_search([1,2,3,1,5], 1) == 0
 
     # ── STRETCH ───────────────────────────────────────────────────────────
 
     def test_search_empty_list_returns_minus_one(self):
         # TODO: searching an empty list should return -1, not raise an error
-        assert linear_search(  # TODO
-        ) == -1
+        assert linear_search([], 0) == -1
 
     def test_search_string_values(self):
         # TODO: linear search should work on lists of strings too
-        assert linear_search(  # TODO: e.g. ["cat", "dog", "fish"], target="dog"
-        ) == # TODO
+        assert linear_search(["a", "b", "c"], "b" ) == 1
 
 
 # ╔═════════════════════════════════════════════════════════════════════════╗
@@ -292,59 +279,48 @@ class TestStringParser:
 
     def test_count_words_single_word(self):
         # TODO: a single word string should return 1
-        assert count_words(  # TODO
-        ) == 1
+        assert count_words("help") == 1
 
     def test_count_words_returns_int_type(self):
         # TODO: check the return type is int
-        result = count_words(  # TODO
-        )
-        assert isinstance(result, # TODO
-        )
+        result = count_words("What is the return type?")
+        assert isinstance(result, int)
 
     def test_is_palindrome_true_for_palindrome(self):
         # TODO: "racecar" is a palindrome — should return True
-        assert is_palindrome(  # TODO
-        ) is True
+        assert is_palindrome("racecar") is True
 
     def test_is_palindrome_false_for_non_palindrome(self):
         # TODO: a word that is NOT a palindrome — should return False
-        assert is_palindrome(  # TODO
-        ) is False
+        assert is_palindrome("not") is False
 
     # ── EXPECTED ──────────────────────────────────────────────────────────
 
     def test_count_words_empty_string(self):
         # TODO: an empty string has no words — should return 0
-        assert count_words(  # TODO
-        ) == # TODO
+        assert count_words("") == 0
 
     def test_count_words_extra_spaces(self):
         # TODO: "hello   world" has two words despite the extra spaces
-        assert count_words(  # TODO
-        ) == # TODO
+        assert count_words("hello    world") == 2
 
     def test_is_palindrome_ignores_case(self):
         # TODO: "Racecar" should still be a palindrome despite the capital R
-        assert is_palindrome(  # TODO
-        ) is True
+        assert is_palindrome("Racecar") is True
 
     def test_is_palindrome_single_character(self):
         # TODO: any single character is a palindrome
-        assert is_palindrome(  # TODO
-        ) is True
+        assert is_palindrome("a") is True
 
     # ── STRETCH ───────────────────────────────────────────────────────────
 
     def test_is_palindrome_ignores_spaces(self):
         # TODO: "never odd or even" is a palindrome when spaces are ignored
-        assert is_palindrome(  # TODO
-        ) is True
+        assert is_palindrome("never odd or even") is True
 
     def test_count_words_only_spaces_returns_zero(self):
         # TODO: a string of only spaces should return 0
-        assert count_words(  # TODO
-        ) == 0
+        assert count_words("       ") == 0
 
 
 # ╔═════════════════════════════════════════════════════════════════════════╗
@@ -366,55 +342,40 @@ class TestTemperatureConverter:
 
     def test_celsius_to_fahrenheit_freezing_point(self):
         # TODO: 0°C should equal 32°F — a good known reference point
-        assert celsius_to_fahrenheit(  # TODO
-        ) == pytest.approx(  # TODO
-        )
+        assert celsius_to_fahrenheit(0) == pytest.approx(32)
 
     def test_fahrenheit_to_celsius_boiling_point(self):
         # TODO: 212°F should convert back to 100°C
-        assert fahrenheit_to_celsius(  # TODO
-        ) == pytest.approx(  # TODO
-        )
+        assert fahrenheit_to_celsius(212) == pytest.approx(100)
 
     def test_fahrenheit_to_celsius_freezing_point(self):
         # TODO: 32°F should convert to 0°C
-        assert fahrenheit_to_celsius(  # TODO
-        ) == pytest.approx(  # TODO
-        )
+        assert fahrenheit_to_celsius(32) == pytest.approx(0)
 
     # ── EXPECTED ──────────────────────────────────────────────────────────
 
     def test_celsius_to_fahrenheit_body_temperature(self):
         # TODO: 37°C (body temperature) ≈ 98.6°F
-        assert celsius_to_fahrenheit(  # TODO
-        ) == pytest.approx(  # TODO, rel=1e-3
-        )
+        assert celsius_to_fahrenheit(37) == pytest.approx(98.6, rel=1e-3)
 
     def test_celsius_to_fahrenheit_negative(self):
         # TODO: -40°C is the point where Celsius and Fahrenheit are equal (-40°F)
-        assert celsius_to_fahrenheit(  # TODO
-        ) == pytest.approx(  # TODO
-        )
+        assert celsius_to_fahrenheit(-40) == pytest.approx(-40)
 
     def test_roundtrip_celsius_to_fahrenheit_and_back(self):
         # TODO: converting to °F and back to °C should give the original value
-        original_celsius = # TODO: pick any temperature
+        original_celsius = 100
         converted = fahrenheit_to_celsius(celsius_to_fahrenheit(original_celsius))
-        assert converted == pytest.approx(  # TODO
-        )
+        assert converted == pytest.approx(original_celsius)
 
     # ── STRETCH ───────────────────────────────────────────────────────────
 
     def test_celsius_to_fahrenheit_absolute_zero(self):
         # TODO: absolute zero is -273.15°C — what is that in Fahrenheit?
         # Hint: -273.15°C = -459.67°F
-        assert celsius_to_fahrenheit(  # TODO
-        ) == pytest.approx(  # TODO, rel=1e-3
-        )
+        assert celsius_to_fahrenheit(-273.15) == pytest.approx(-459.67, rel=1e-3)
 
     def test_fahrenheit_to_celsius_returns_float(self):
         # TODO: the result should always be a float, even for whole-number inputs
-        result = fahrenheit_to_celsius(  # TODO
-        )
-        assert isinstance(result, # TODO
-        )
+        result = fahrenheit_to_celsius(50)
+        assert isinstance(result, float)
