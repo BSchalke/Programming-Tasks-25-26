@@ -11,7 +11,7 @@ TODO:
 - Add demonstration code under `if __name__ == "__main__":`
 """
 
-class Queue():
+class Queue:
     def __init__(self):
         self.values = []
         self.size = 0
