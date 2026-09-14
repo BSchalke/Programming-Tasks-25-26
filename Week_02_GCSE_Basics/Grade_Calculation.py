@@ -14,11 +14,18 @@ TODO:
 - Add demonstration code under `if __name__ == "__main__":`
 """
 
+def get_grade(score):
+    boundaries = {"D":39, "C":59, "B":79, "A":100}
+
+    for key in boundaries:
+        if  score <= boundaries[key]:
+            return key
+
+    return "Invalid percentage"
+
 def main():
-    # TODO: Write demonstration/testing code
-    # If you want to delete all the code here and work just with a blank file go ahead, remember anything under the if __name__=="__main__":
-    # will only run if this module is being run directly. So used this subprocedure to carry out testing if it is going to be an imported file.
-    pass
+    score = float(input("Enter percentage score:\t"))
+    print(get_grade(score))
 
 
 if __name__ == "__main__":
