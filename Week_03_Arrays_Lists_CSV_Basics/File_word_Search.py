@@ -10,11 +10,21 @@ TODO:
 - Add demonstration code under `if __name__ == "__main__":`
 """
 
+def count_term(filename, search_term):
+    with open(filename, "r") as file:
+        lines = file.readlines()
+
+    count = 0
+    for line in lines:
+        if search_term in line:
+            count += 1
+
+    return count
+
+
 def main():
-    # TODO: Write demonstration/testing code
-    # If you want to delete all the code here and work just with a blank file go ahead, remember anything under the if __name__=="__main__":
-    # will only run if this module is being run directly. So used this subprocedure to carry out testing if it is going to be an imported file.
-    pass
+    term = input("Enter a term to be searched in Sherlock:\t")
+    print(f"This appears {count_term("cano.txt", term)} times in all of Sherlock!")
 
 
 if __name__ == "__main__":
